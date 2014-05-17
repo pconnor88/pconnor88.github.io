@@ -1,7 +1,59 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>Instagram Profile Widget</title>
+<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Roboto:400,500,600,700' rel='stylesheet' type='text/css'>
+
+<style>
+	
+	html,body {margin:0; padding:0; min-height:100%;}
+	
+	body {
+		background-image: url(./demo_assets/bg.jpg); 
+		background-size:cover;
+		background-position:center;
+		background-repeat:no-repeat;
+	}
+	
+	
+	#widget {
+		margin:50px auto 20px; 	
+	}
+	
+	.github-link {
+		display:block; 
+		text-align:center;	
+		color:#ffffff;
+		font-family: 'Roboto', sans-serif;
+		text-decoration:none;
+		text-shadow: 1px 1px 1px #1a1a1a;
+		font-size:14px;
+	}
+		
+</style>
+
+<link rel="stylesheet" href="./css/profile-widget.min.css">
+
+<script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="./js/jquery.profile-widget.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#widget").ProfileWidget({
+			username: "pconnor88",
+			clientID: "d895ae037f7e4f598740cb1958155bd1"
+		});
+	});
+</script>
+
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+	    
+    <div id="widget"></div>
+    
+    <a href="https://github.com/pconnor88/instagram-profile-widget" class="github-link">View on GitHub</a>
+    
 </body>
+
 </html>
