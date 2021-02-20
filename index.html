@@ -1,61 +1,25 @@
-<script type="text/javascript" src="serial.js"></script>
+<html>
+<head>
 
-<script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+  <title>Pete Connor</title>
+  
+</head>
+<body>
 
-(function() {
-  'use strict';
-
-  document.addEventListener('DOMContentLoaded', event => {
-    let connectButton = document.querySelector("#connect");
-	let statusDisplay = document.querySelector('#status');
-    let port;
-
-    function connect() {
-      port.connect().then(() => {
-        statusDisplay.textContent = '';
-        connectButton.textContent = 'Disconnect';
-
-        port.onReceive = data => {
-          let textDecoder = new TextDecoder();
-          console.log(textDecoder.decode(data));
-        }
-        port.onReceiveError = error => {
-          console.error(error);
-        };
-      }, error => {
-        statusDisplay.textContent = error;
-      });
-    }
-
-    connectButton.addEventListener('click', function() {
-      if (port) {
-        port.disconnect();
-        connectButton.textContent = 'Connect';
-        statusDisplay.textContent = '';
-        port = null;
-      } else {
-        serial.requestPort().then(selectedPort => {
-          port = selectedPort;
-          connect();
-        }).catch(error => {
-          statusDisplay.textContent = error;
-        });
-      }
-    });
-
-    serial.getPorts().then(ports => {
-      if (ports.length == 0) {
-        statusDisplay.textContent = 'No device found.';
-      } else {
-        statusDisplay.textContent = 'Connecting...';
-        port = ports[0];
-        connect();
-      }
-    });
-  });
-})();
-
-</script>
-
-<button id="connect">Choose device</button>
-<span id="status"></span>
+	<div class="panel">
+		<div class="centered-content">
+			<h1>Peter Connor</h1>
+			<h2>Full stack developer with an obsession for making great products.<br />
+				Amateur photographer and world traveller.
+			</h2>
+			<a href="http://github.com/pconnor88" target="_blank" class="github"><i class="fab fa-github social-icon"></i></a>
+			<a href="https://www.instagram.com/pete.c.photos/" target="_blank" class="instagram"><i class="fab fa-instagram social-icon"></i></a>
+			<a href="https://www.linkedin.com/in/pconnor88/" target="_blank" class="linkedin"><i class="fab fa-linkedin social-icon"></i></a>
+		</div>
+	</div
+</body>
+</html>
